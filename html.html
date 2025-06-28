@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>javaScriptJourney</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+<script type="text/javaScript">
+
+function alerts (){
+    var myValue = document.getElementById('myTextBox').value;
+
+    if (myValue.length == 0){
+        alert ('Please enter a valid elements or response');
+        return;
+    }
+    var myHeader = document.getElementById('theHeader');
+    myHeader.innerHTML = myValue;
+}
+    </script>
+</head>
+<body onload="alert('Hello Dinavel, Welcome back!')">
+
+    <h1 id="theHeader"></h1>
+    <h1>test</h1>
+    <h2>Hello World</h2>
+    <input type="text" id="myTextBox"/>
+    <input type="submit" value="Click Me!!!" onclick="alerts()"/>
+</body>
+</html>
