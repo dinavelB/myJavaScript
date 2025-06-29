@@ -1,0 +1,19 @@
+
+search for JavaScript Learning:
+1. Built-in functions in JavaScript
+
+to treat js a statement that has quote, without concatenation you need to add \ before the quote.
+ex. 
+var ExampleJs = "My \" so called \" Life";
+alert (ExampleJS); 
+it will be alerted in My "so called" Life
+
+JavaScript variables are containers for storing data values.
+   
+    All JavaScript variables must be identified with unique names.
+
+Creating a variable in JavaScript is called "declaring" a variable. 
+   
+    function substitute () {var myValue = document.getElementByldQ.value;}
+           - function name is substitute
+           - variable name is myValue
