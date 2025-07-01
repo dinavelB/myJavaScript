@@ -7,16 +7,20 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script>
-    var someValue = 28;
-    var someOtherValue = 40;
-
-     if (someValue < 30 && someOtherValue >30){
-        alert ("True");
-     }
-
+        function myOwnFunc () {
+ document.getElementById('helloo').innerHTML = 'Changed.'
+        }
+       
+ 
     </script>
 </head>
 <body>
-    
+     
+    <h1>This is my selfLearn javaScript</h1>
+    <p id="hello">i can change this paragraph thru js.</p>
+    <button type="button" onclick="document.getElementById('hello').style.color='red'">click meee</button>
+
+    <p id="helloo">Click me to change the content, this is my own demo from my memory</p>
+    <button type="button" onclick="myOwnFunc()">click me dawg</button>
 </body>
 </html>
