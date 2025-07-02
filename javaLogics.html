@@ -13,9 +13,32 @@
 <h1>JavaScript Variables</h1>
 <p>Create a variable, assign a value to it, and display it:</p>
 <p id="demo"></p>
+<p id="samp"></p>
+<p id="xamp"></p>
+<p id="xamp2"></p>
 <script>
+
+    //attempted to combine multiple variables and succeeded also added some style.
     let carName = " mustang ", persoName = " Dinavel", priceLabel = 200;
     document.getElementById("demo").innerHTML = priceLabel + carName + priceLabel;
+    document.getElementById("demo").style.fontSize = "20px"; //  cant be added another style in this alone statement. (attempted)
+   
+
+    // using operator "+="
+    let _welcome = "Hi my name is ";
+    _welcome += 'Dinavel';
+    document.getElementById('samp').innerHTML = _welcome;
+
+    // using the arithmetic exponentiation
+    let x = 5;
+    document.getElementById('xamp').innerHTML = x**2;
+    // below of this comment is block scoped, i can use the used variable because of curly brackets, only the variable inside is intended to be used only in the inside.
+    {// the Math.pow menthod can be use also for exponentiation.
+        let x = 5
+        let z = Math.pow(x,2);
+        document.getElementById("xamp2").innerHTML = z;
+    }
+
 </script>
 
 

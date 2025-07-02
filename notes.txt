@@ -1,6 +1,7 @@
 
 search for JavaScript Learning:
 1. Built-in functions in JavaScript
+2. learn bitwise operators
 
 to treat js a statement that has quote, without concatenation you need to add \ before the quote.
 ex. 
@@ -17,3 +18,9 @@ Creating a variable in JavaScript is called "declaring" a variable.
     function substitute () {var myValue = document.getElementByldQ.value;}
            - function name is substitute
            - variable name is myValue
+
+my takeaways {
+js reads on top to bottom , if the argument satisfy the condition or the option, it will not execute the another option.
+If you put a number in quotes, the rest of the numbers will be treated as strings, and concatenated.
+the let and const cant be used outside the curly brackets unlike the var.
+3. the parenthesis in arithmetic expression will be computed first even it has a multiplication outside. And also if parenthesis does not exist, the multiplication will be the one computed first.
