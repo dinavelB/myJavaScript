@@ -6,21 +6,20 @@
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script>
-        function myOwnFunc () {
- document.getElementById('helloo').innerHTML = 'Changed.'
-        }
-       
- 
-    </script>
 </head>
 <body>
-     
-    <h1>This is my selfLearn javaScript</h1>
-    <p id="hello">i can change this paragraph thru js.</p>
-    <button type="button" onclick="document.getElementById('hello').style.color='red'">click meee</button>
 
-    <p id="helloo">Click me to change the content, this is my own demo from my memory</p>
-    <button type="button" onclick="myOwnFunc()">click me dawg</button>
+
+<h1>JavaScript Variables</h1>
+<p>Create a variable, assign a value to it, and display it:</p>
+<p id="demo"></p>
+<script>
+    let carName = " mustang ", persoName = " Dinavel", priceLabel = 200;
+    document.getElementById("demo").innerHTML = priceLabel + carName + priceLabel;
+</script>
+
+
+
+
 </body>
 </html>
