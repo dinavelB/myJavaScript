@@ -16,6 +16,8 @@
 <p id="samp"></p>
 <p id="xamp"></p>
 <p id="xamp2"></p>
+<p id="forFunction"></p>
+<p id="forFunction2"></p>
 <script>
 
     //attempted to combine multiple variables and succeeded also added some style.
@@ -38,6 +40,22 @@
         let z = Math.pow(x,2);
         document.getElementById("xamp2").innerHTML = z;
     }
+    // calling a function
+    function ownFunction (x1, x2){
+        return x1 + x2;
+    }
+    const theResult = ownFunction(4, 5);
+    document.getElementById("forFunction").innerHTML = theResult;
+    // writing a function that has no return, and a return for seeing the differences of the two.
+    function yesReturn (health){
+        if (health == "I'm okay!!"){
+          return "I am definitely okay";
+        } else {
+            return "I am not okay";
+        }
+    }
+    const _result = yesReturn("I'm okay");
+    document.getElementById("forFunction2").innerHTML = _result;
 
 </script>
 

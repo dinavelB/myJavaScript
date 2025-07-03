@@ -31,3 +31,4 @@ the let and const cant be used outside the curly brackets unlike the var.
 7. BigInt is for super large numbers that cant be represented by types of numbers in javaScript
 8. JavaScript arrays are written with square brackets.
 9. JavaScript objects are written with curly braces {}.
+10. Every function gives back something. so always use return
