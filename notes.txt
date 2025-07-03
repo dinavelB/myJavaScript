@@ -2,6 +2,7 @@
 search for JavaScript Learning:
 1. Built-in functions in JavaScript
 2. learn bitwise operators
+3,study javaScript assignments
 
 to treat js a statement that has quote, without concatenation you need to add \ before the quote.
 ex. 
@@ -24,3 +25,9 @@ js reads on top to bottom , if the argument satisfy the condition or the option,
 If you put a number in quotes, the rest of the numbers will be treated as strings, and concatenated.
 the let and const cant be used outside the curly brackets unlike the var.
 3. the parenthesis in arithmetic expression will be computed first even it has a multiplication outside. And also if parenthesis does not exist, the multiplication will be the one computed first.
+4. let and const can't be redeclared/ change
+5. javaScript reads the line of code from left to right
+6. same variable can hold different data types.
+7. BigInt is for super large numbers that cant be represented by types of numbers in javaScript
+8. JavaScript arrays are written with square brackets.
+9. JavaScript objects are written with curly braces {}.
