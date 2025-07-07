@@ -18,6 +18,8 @@
 <p id="xamp2"></p>
 <p id="forFunction"></p>
 <p id="forFunction2"></p>
+<p id="objects"></p>
+<p id="objectwithFunc"></p>
 <script>
 
     //attempted to combine multiple variables and succeeded also added some style.
@@ -54,10 +56,28 @@
             return "I am not okay";
         }
     }
-    let theReturn = "is he okay?" + yesReturn("I'm okay!!");
+    //let theReturn = "is he okay?" + yesReturn("I'm okay!!");
     let result = yesReturn("I'm okay!!");
-    document.getElementById("forFunction2").innerHTML = result;
+    document.getElementById("forFunction2").innerHTML = result + ": // i am a function with a simple logic";
 
+    const car = {type:"honda", color:"Red", model:"civic"};
+    car.length = "20000";// objectName which is car and property name which is length with a value of 20000. This is how you add a new object
+    //object literals are the (name:value) lists inside of the curly brackets.
+    document.getElementById("objects").innerHTML = car.type + " "+ car.model + " is my car" + ": I am a object";
+    /*const cofee = {}; // you can also do this on object works on the same with the first one
+    cofee.name = "Machiato";
+    cofee.taste = "salty";
+    cofee.size = "Big";
+    */
+    const cofee = {
+        name:"Machiato",
+         taste:"Salty",
+          size:"Big",
+          description : function (){
+            return this.name + " is a very " + this.taste;
+          }
+        };
+    document.getElementById("objectwithFunc").innerHTML = cofee.description();
 </script>
 
 

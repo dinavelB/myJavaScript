@@ -1,8 +1,12 @@
+In JavaScript, Objects are King.
+if you understand objects you learned javascript
+
 
 search for JavaScript Learning:
 1. Built-in functions in JavaScript
 2. learn bitwise operators
 3,study javaScript assignments
+4. study javascript features
 
 to treat js a statement that has quote, without concatenation you need to add \ before the quote.
 ex. 
@@ -32,3 +36,15 @@ the let and const cant be used outside the curly brackets unlike the var.
 8. JavaScript arrays are written with square brackets.
 9. JavaScript objects are written with curly braces {}.
 10. Every function gives back something. so always use return
+11. const and let cannot change the value, unlike the var, it can be redeclared.
+12.It is a common practice to declare objects with the const keyword.
+13. An object literal is a list of name:value pairs inside curly braces {}.
+14. object literals are also called object initializers.
+15. But, there is no need to use new Object(), they execute the same with " const car = {}" 
+// const car = new Object()
+For readability, simplicity and execution speed, use the object literal method. // const car = {};
+16. car.name = "red";
+	name = //named value and called property.
+	value = red
+17. You can use this to refer to any object, not just a person.
+18. the "this" keyword is use for calling a property within the function
