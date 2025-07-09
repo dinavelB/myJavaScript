@@ -8,6 +8,12 @@
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
 </head>
 <body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Allura&family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Great+Vibes&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rowdies:wght@300;400;700&family=Satisfy&family=Sigmar&display=swap');
+        body {
+            font-family: 'Montserrat';
+        }
+    </style>
 
 
 <h1>JavaScript Variables</h1>
@@ -59,7 +65,7 @@
     //let theReturn = "is he okay?" + yesReturn("I'm okay!!");
     let result = yesReturn("I'm okay!!");
     document.getElementById("forFunction2").innerHTML = result + ": // i am a function with a simple logic";
-
+    // using const in object is a common practice
     const car = {type:"honda", color:"Red", model:"civic"};
     car.length = "20000";// objectName which is car and property name which is length with a value of 20000. This is how you add a new object
     //object literals are the (name:value) lists inside of the curly brackets.
@@ -73,11 +79,18 @@
         name:"Machiato",
          taste:"Salty",
           size:"Big",
-          description : function (){
+          description : function (){// description is the function name, A method is a function definition stored as a property value. so this line of code is a object method
             return this.name + " is a very " + this.taste;
+          },
+          branches: {// Property values in an object can be other objects, this is called nesting
+            b1: "quezon",
+            b2: "Umingan",
+            b3: "Urdaneta"
           }
         };
-    document.getElementById("objectwithFunc").innerHTML = cofee.description();
+        delete cofee.taste // deleting a property
+        cofee.branches.b1; //this is how you call a nested property with an object inside of it
+    document.getElementById("objectwithFunc").innerHTML = cofee.branches.b1;
 </script>
 
 
