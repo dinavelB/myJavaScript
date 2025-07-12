@@ -51,4 +51,4 @@ For readability, simplicity and execution speed, use the object literal method. 
 19. method is a function that is belong to the object
 20. function is a special type of object
 21. use "this" Only When It’s a Method or Constructor.
-22, constructor is a function that is use to create ,many objects
+22, constructor is a function that is use to create ,many objects.
