@@ -90,7 +90,58 @@
         };
         delete cofee.taste // deleting a property
         cofee.branches.b1; //this is how you call a nested property with an object inside of it
-    document.getElementById("objectwithFunc").innerHTML = cofee.branches.b1;
+
+        // added a method and combine the nested property, object method and object property
+        cofee.product = function(){
+            return (this.name + this.branches.b1 + this.description()).toUpperCase(); //uppercased method this is a feature in javascript
+        }
+
+    let space = " ";
+    for (let x in cofee){
+    space += cofee[x] + " ";
+    };
+    const person = {
+        firstName: "Spongebob",
+        lastName: "SquarePants",
+        age: 35,
+        isEmployed: true
+    };
+
+    // converts into array from object to array, array has coma between the values while object has none
+    const myArray = Object.values(person);
+
+    //for loop to show the values of an object or to display the objects thats why these called are display
+    let text = " ";
+    for (let x in person){
+        text += person[x] + " "
+    } 
+
+    //Object.entries is for looping the whole object easily
+    //recommended for displaying objects
+    let sample = "";
+    for (let [property, value] of Object.entries(person)){
+        sample += property + ": " + value + "<br>";
+    }
+
+    // NOTE: A FUNCTION IS CALLED A "METHOD" WHEN ITS INSIDE OF THE OBJECT.
+        //FUNCTION IS A SPECIAL TYPE OF OBJECT, OBJECT CONSTRUCTOR FUNCTION == FUNCTION, 
+        // BUT THE CONSTRUCTOR IS USE FOR CREATING MANY  OBJECTS 
+
+        function Person(first, last, age, job){
+            this.firstName = first;
+            this.lastName = last;
+            this.age = age;
+            this.Job = job;
+        }
+        const Person1 = new Person ("Dinavel", "Binongo", 19, "webDeveloper");
+
+        let samplee = "";
+        for (let [property, value] of Object.entries(Person1)){
+            samplee += property + ": " + value +"<br>";
+        }
+
+     document.getElementById("objectwithFunc").innerHTML = samplee;
+
 </script>
 
 

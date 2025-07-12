@@ -48,3 +48,7 @@ For readability, simplicity and execution speed, use the object literal method. 
 	value = red
 17. You can use this to refer to any object, not just a person.
 18. the "this" keyword is use for calling a property within the function
+19. method is a function that is belong to the object
+20. function is a special type of object
+21. use "this" Only When It’s a Method or Constructor.
+22, constructor is a function that is use to create ,many objects
