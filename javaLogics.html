@@ -26,6 +26,7 @@
 <p id="forFunction2"></p>
 <p id="objects"></p>
 <p id="objectwithFunc"></p>
+<p id="constructor"></p>
 <script>
 
     //attempted to combine multiple variables and succeeded also added some style.
@@ -127,20 +128,31 @@
         //FUNCTION IS A SPECIAL TYPE OF OBJECT, OBJECT CONSTRUCTOR FUNCTION == FUNCTION, 
         // BUT THE CONSTRUCTOR IS USE FOR CREATING MANY  OBJECTS 
 
-        function Person(first, last, age, job){
+        function Person(first, last, age, job, nationality){
             this.firstName = first;
             this.lastName = last;
             this.age = age;
             this.Job = job;
+            this.nationality = nationality;
+            this.personalInfo = function(){
+                return this.firstName +" " + this.lastName +" "+  this.age +" "  + this.Job +" " + this.nationality;
+            }
         }
-        const Person1 = new Person ("Dinavel", "Binongo", 19, "webDeveloper");
+        const Person1 = new Person ("Dinavel", "Binongo", 19, "webDeveloper", "filipino");
+        const Person2 = new Person("Andrew", "Batnag", 23, "none", "fil");
+        Person1.hobby = "Coding and playing Grow a Garden";
 
         let samplee = "";
         for (let [property, value] of Object.entries(Person1)){
             samplee += property + ": " + value +"<br>";
         }
+        let _Person2 = "";
+        for (let[property, value]of Object.entries(Person2)){
+            _Person2 += property + ": " + value + "<br>";
+        }
 
      document.getElementById("objectwithFunc").innerHTML = samplee;
+     document.getElementById("constructor").innerHTML = Person1.personalInfo(); // this is how you call an object constructor with a method.
 
 </script>
 
