@@ -133,11 +133,14 @@
             this.lastName = last;
             this.age = age;
             this.Job = job;
-            this.nationality = nationality;
+            //this.nationality = nationality;
             this.personalInfo = function(){
                 return this.firstName +" " + this.lastName +" "+  this.age +" "  + this.Job +" " + this.nationality;
             }
         }
+        //This is a new property for the obj constructor
+        Person.prototype.nationality = "Filipino";
+        //objs created by constructor
         const Person1 = new Person ("Dinavel", "Binongo", 19, "webDeveloper", "filipino");
         const Person2 = new Person("Andrew", "Batnag", 23, "none", "fil");
         Person1.hobby = "Coding and playing Grow a Garden";
