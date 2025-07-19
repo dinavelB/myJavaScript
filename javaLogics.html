@@ -213,7 +213,32 @@
     }
      const student1 = new Students ("SBIT", "SBIT-2F");
      const fullnfo = student1.fullName("Dinavel", "Binongo", "Escodero")
-     document.getElementById("test2").innerHTML = fullnfo;
+    
+
+
+
+
+     no
+     const _student1 = new Student_Info("Bachelor of Science of Technology", "SBIT-2F", "San Bartolome");
+     const displayName = _student1.fullName("Dinavel", "Binongo", "Escodero");
+     //this is how you add a new property to the object
+      _student1.hobby = "coding";
+
+     let _displayName = "";
+     for (let[property, value] of Object.entries(_student1)){
+        _displayName += property + ": " + value + "<br>";
+     }
+
+     const _obj = {
+        nameofObj: "car",
+        modelName: "Honda",
+        yearModel: 2006,
+    _carInfo: function (){
+        return `${this.nameofObj} <br> ${this.modelName} <br> ${this.yearModel}`
+    }
+     }
+      document.getElementById("test2").innerHTML = _obj._carInfo();
+
      </script>
 
 
