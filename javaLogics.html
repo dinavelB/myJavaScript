@@ -27,6 +27,7 @@
 <p id="objects"></p>
 <p id="objectwithFunc"></p>
 <p id="constructor"></p>
+<p id="test"></p>
 <script>
 
     //attempted to combine multiple variables and succeeded also added some style.
@@ -66,8 +67,21 @@
     //let theReturn = "is he okay?" + yesReturn("I'm okay!!");
     let result = yesReturn("I'm okay!!");
     document.getElementById("forFunction2").innerHTML = result + ": // i am a function with a simple logic";
+
     // using const in object is a common practice
-    const car = {type:"honda", color:"Red", model:"civic"};
+    //this is an object
+    const car = {
+        Type:"honda", 
+        color:"Red",
+         model:"civic",
+         changeColor: function(Color){
+            this.color = Color;
+         }
+    };
+
+    car.changeColor("blue")
+    document.getElementById("test").innerHTML = "my car is a new" + car.color;
+
     car.length = "20000";// objectName which is car and property name which is length with a value of 20000. This is how you add a new object
     //object literals are the (name:value) lists inside of the curly brackets.
     document.getElementById("objects").innerHTML = car.type + " "+ car.model + " is my car" + ": I am a object";
@@ -154,8 +168,41 @@
             _Person2 += property + ": " + value + "<br>";
         }
 
-     document.getElementById("objectwithFunc").innerHTML = samplee;
-     document.getElementById("constructor").innerHTML = Person1.personalInfo(); // this is how you call an object constructor with a method.
+        //this is how you update a property value using the property function.
+        Person1.newCareer = function (career){
+            this.Job = career;
+            return this.Job;
+        }
+        // this is my own logic calling all property in the object using a property method with parameters in it.
+        const myFather = {
+            name: "virden",
+            lastName: "Estipular",
+            age: 47,
+            fullInfo: function(name, lastname, year){
+                this.name = name;
+                this.lastName = lastname;
+                this.age= year;
+            }
+        }
+
+        const father = myFather.fullInfo("virden", "Estipular", 47);
+
+     document.getElementById("constructor").innerHTML = "my father is: " + father;
+
+
+     function Students (course, section){
+        this.course = course;
+        this.section = section;
+
+
+        this.fullName = function (firstName, lastName, middleName){
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.middleName = middleName;
+        }
+     }
+     const student1 = new Students ("SBIT", "SBIT-2F");
+     student1.fullName
 
 </script>
 
