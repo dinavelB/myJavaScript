@@ -28,6 +28,7 @@
 <p id="objectwithFunc"></p>
 <p id="constructor"></p>
 <p id="test"></p>
+<p id="test2"></p>
 <script>
 
     //attempted to combine multiple variables and succeeded also added some style.
@@ -181,8 +182,11 @@
             fullInfo: function(name, lastname, year){
                 this.name = name;
                 this.lastName = lastname;
-                this.age= year;
+                this.age = year;
+
+                return `${this.name} ${this.lastName}, ${this.age}`
             }
+            
         }
 
         const father = myFather.fullInfo("virden", "Estipular", 47);
@@ -194,17 +198,23 @@
         this.course = course;
         this.section = section;
 
-
+        //this is a parametized function, it has parameters
         this.fullName = function (firstName, lastName, middleName){
             this.firstName = firstName;
             this.lastName = lastName;
             this.middleName = middleName;
-        }
-     }
-     const student1 = new Students ("SBIT", "SBIT-2F");
-     student1.fullName
 
-</script>
+            return `${this.firstName} ${this.lastName}, ${this.middleName}`
+        }
+            //this is how you call a template literal, its more easier to use, its use on everything. This is a nullary function, it has no parameters. I combine the mthod and the pproperty parameters
+        this.displayInfo = function() {
+            return `${this.fullName(this.firstName, this.lastName, this.middleName)}, course: ${this.course}, ${this.section}`;
+        }
+    }
+     const student1 = new Students ("SBIT", "SBIT-2F");
+     const fullnfo = student1.fullName("Dinavel", "Binongo", "Escodero")
+     document.getElementById("test2").innerHTML = fullnfo;
+     </script>
 
 
 
