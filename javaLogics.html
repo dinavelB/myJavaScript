@@ -28,7 +28,12 @@
 <p id="objectwithFunc"></p>
 <p id="constructor"></p>
 <p id="test"></p>
-<p id="test2"></p>
+<button id="test3" onclick="student1.action()">click me</button>
+<p id="test4"></p>
+<p class="test7"></p>
+<button onclick="student1.actionChange()"Type >change my name</button>
+<p id="test6"></p>
+<input type="text" name="" id="text1">
 <script>
 
     //attempted to combine multiple variables and succeeded also added some style.
@@ -198,7 +203,6 @@
         this.course = course;
         this.section = section;
 
-        //this is a parametized function, it has parameters
         this.fullName = function (firstName, lastName, middleName){
             this.firstName = firstName;
             this.lastName = lastName;
@@ -206,21 +210,56 @@
 
             return `${this.firstName} ${this.lastName}, ${this.middleName}`
         }
-            //this is how you call a template literal, its more easier to use, its use on everything. This is a nullary function, it has no parameters. I combine the mthod and the pproperty parameters
+
+        this.sample = function(){
+                let first = "Dinavel";
+                let last = "Binongo";
+
+                return `${first}, ${last}`
+        }
+        this.changeName = function (lName){
+            this.lastName = lName;
+            return `${this.lastName}`;
+        }
+        this.actionChange = function(){
+                this.changeName("Batnag");
+                document.getElementById("test6").innerHTML = `${this.firstName} ${this.lastName} ${this.middleName}`;
+            }
         this.displayInfo = function() {
-            return `${this.fullName(this.firstName, this.lastName, this.middleName)}, course: ${this.course}, ${this.section}`;
+            return `${this.fullName(this.firstName, this.lastName, this.middleName)}, course: ${this.course}, ${this.section},
+            ${this.sample()}`;
+        }
+        // if its a constructor or class, its mandatory to use the `this` keyword, always!!
+        this.action = function(){
+         document.getElementById("test4").innerHTML = this.displayInfo();
         }
     }
-     const student1 = new Students ("SBIT", "SBIT-2F");
-     const fullnfo = student1.fullName("Dinavel", "Binongo", "Escodero")
-    
+
+    const student1 = new Students ();
+    student1.fullName("Dinavel", "Binongo", "Escodero");
 
 
 
 
-     no
-     const _student1 = new Student_Info("Bachelor of Science of Technology", "SBIT-2F", "San Bartolome");
-     const displayName = _student1.fullName("Dinavel", "Binongo", "Escodero");
+
+
+    const _student1 = new Student_Info("Bachelor of Science of Technology", "SBIT-2F", "San Bartolome");
+     _student1.fullName("Dinavel", "Binongo", "Escodero");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
      //this is how you add a new property to the object
       _student1.hobby = "coding";
 
@@ -237,8 +276,7 @@
         return `${this.nameofObj} <br> ${this.modelName} <br> ${this.yearModel}`
     }
      }
-      document.getElementById("test2").innerHTML = _obj._carInfo();
-
+     
      </script>
 
 
