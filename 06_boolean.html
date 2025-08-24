@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Booleans</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+        section{
+            width:200px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        div{
+            display: grid;
+            grid-template-areas: 'col1 col2';
+        }div button{
+            grid-area: col2;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <input type="text" value="" id="getInput" placeholder="Please enter your age">
+        <div>
+            <button onclick="myFunction()">Enter</button>
+        </div>
+        <p id="setResult"></p>
+    </section>
+    <script>
+        
+        true
+        false
+        console.log(3 < 5)
+
+        //if true it allows the lock of code to run
+        // if false it doesnt allow it to run
+        if (true){
+            console.log('hello')
+        } else{
+            console.log('hi')
+        }
+
+        function myFunction(){
+            const storeData = Number(document.getElementById('getInput').value)
+            document.getElementById('setResult').innerHTML = storeData
+
+                if (storeData > 60){
+                    console.log(`Hey gramps u need to take a break`)
+                    document.getElementById('setResult').innerHTML = `Hey gramps u need to take a break`
+                }else if(storeData > 17){
+                    console.log(`youre old enough to drive`)
+                    document.getElementById('setResult').innerHTML = `youre old enough to drive`
+                }else{
+                    console.log('Sorry, you are not allowed to drive')
+                    document.getElementById('setResult').innerHTML = 'Sorry, you are not allowed to drive'
+                }
+        }
+        
+    </script>
+</body>
+</html>

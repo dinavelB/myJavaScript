@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>jsPlayground</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Allura&family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Great+Vibes&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rowdies:wght@300;400;700&family=Satisfy&family=Sigmar&display=swap" rel="stylesheet">
+    <style>
+        body{
+            font-family: 'Montserrat';
+        }
+        .access{
+            display: flex;
+            justify-content: center;
+            padding: 200px;
+        }#name{
+            height: 30px;
+            width: 200px;
+        }.access div{
+            display: grid;
+            gap: 15px;
+        }button{
+            margin-left: 100px;
+            width: 100px;
+            background-color: aquamarine;
+            border: 1px solid gray;
+            border-radius: 10px;
+            height: 30px;
+        }button:hover{
+            background-color: bisque;
+        }#test{
+            height: 30px;
+            width: 200px;
+        }input{
+            border: 1px solid gray;
+            color: gray;
+        }.name{
+            color: rgb(240, 82, 58);
+        }#dayCalculator{
+            display: flex;
+            justify-content: center;
+            padding: 200px;
+            margin-top: -3in;
+        }.container{
+            width: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }#inputDay{
+            height: 30px;
+            width: auto;
+        }#enterChangedName {
+            margin-top: 20px;
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+    <section class="access">
+        <div>
+            <p>Enter your full name</p>
+            <input type="text" id="name" placeholder="Please enter your full name" value="">
+            <button id="send" onclick="createUser()">Enter</button>
+            <button onclick="changeName()">change name</button>
+            <p id="result"></p>
+            <p id="changeName"></p>
+            <p id="resultChange"></p>
+        </div>
+    </section>
+    <section id="dayCalculator">
+        <div class="container">
+            <input type="text" id="enterName" placeholder="Please enter your Name" value="">
+            <button onclick="">Enter</button>
+            <p id="resultDay"></p>
+        </div>
+    </section>
+    <p id="forArray"></p>
+</body>
+    <script>
+
+
+
+         function Users(firstName, middleName, lastName){
+            this.firstName =  firstName;
+            this.middleName = middleName;
+            this.lastName = lastName;
+        };
+
+        Users.prototype.nameChange = function(lastName){
+            this.lastName = lastName;
+        }
+
+        
+        //trim() is for trimming the white spaces entered by the client;
+        // split(), splits the string, turning them into a array;
+
+        function createUser(){
+            const getValue = document.getElementById('name').value.trim()
+            const namePartsToArray = getValue.split(' ')
+
+                const User1 = new Users(
+                    namePartsToArray[0] || '',
+                    namePartsToArray[1]   || '',
+                    namePartsToArray.slice(2).join(' ') || ''
+                )
+            const getFullName = function(){
+                return `First Name: ${User1.firstName} <br>
+                Last Name: ${User1.lastName} <br>
+                Middle Name: ${User1.middleName}`
+            }
+                document.getElementById('result').innerHTML = getFullName();
+                console.log(User1)
+        }
+
+         //changing the name
+         function changeName(){
+            document.getElementById('changeName').innerHTML = `<input id= "test" value = " "> <br>
+            <button id = "enterChangedName" onclick = "enter()"> Enter Changed Name </button>`
+
+        }
+         const enter = function(){
+                document.getElementById('resultChange').innerHTML = `hey its successful!!!`
+            }
+
+        function enterName(){
+            const getName = document.getElementById('name').value;
+                if (getName == ''){
+                   const nameInput =  document.getElementById('result').innerHTML = `<span class = "name">Please enter a valid name </span>`
+                }else{
+                     const storeName =  document.getElementById('result').innerHTML = getName;
+                }
+        }
+        //Note: the input tag value is always a string, convert it to Number or parseInt in order to the case.
+        function getDay(){
+            const getInputDay = Number(document.getElementById('inputDay').value)
+                switch (getInputDay){
+                    case 1:
+                        document.getElementById('resultDay').innerHTML = `The Day is Monday`
+                        break;
+                    case 2:
+                        document.getElementById('resultDay').innerHTML = `The Day is Tuesday`
+                        break;
+                    case 3: 
+                        document.getElementById('resultDay').innerHTML = `The Day is Wednesday`
+                        break;
+                    case 4: 
+                        document.getElementById('resultDay').innerHTML = `The Day is Thurday`
+                        break;
+                    case 5: 
+                        document.getElementById('resultDay').innerHTML = `The Day is Friday`
+                        break;
+                    case 6: 
+                        document.getElementById('resultDay').innerHTML = `The Day is Saturday`
+                        break;
+                    case 7: 
+                        document.getElementById('resultDay').innerHTML = `The Day is Sunday`
+                        break;
+                    default:
+                        document.getElementById('resultDay').innerHTML = `Please enter only between 1-7`
+                }
+        }
+
+         const theArray = ['arrayNumber1',
+          'arrayNumber2',
+           'arrayNumber3',
+            'arrayNumber4']
+
+            /*let arrayDisplay = ''
+            for (let i = 0; i < theArray.length; i++ ){
+                arrayDisplay += theArray[i] + '<br>';
+            }
+            document.getElementById('forArray').innerHTML = arrayDisplay;
+            console.log(arrayDisplay)
+            */
+        // you can also do this
+            let text = ''
+            let arrar = theArray.length
+            let o = 0
+            for (; o< arrar; o++){
+                text += theArray[o] + '<br>';
+            }
+            console.log(text)
+            document.getElementById('forArray').innerHTML = text;
+
+            /*
+            // or this
+            // the expression should have the ; in the end
+            let text = ''
+            let arrar = theArray.length
+            let o = 0
+            for (; o< arrar;){
+                text += theArray[o] + '<br>';
+                o++;
+            }
+            console.log(text)
+            */
+
+            //The for in statement loops through the properties of an object:
+            //Do not use for in over an Array if the index order is important.
+            //It is better to use a for loop, a for of loop, or Array.forEach() when the order is important.
+            const person = {
+                fName: 'Dinavel',
+                lName: 'Binongo',
+                age: 19
+            }
+            // the for loop in is for looping the object
+                let objectCon_ = ''
+                for (let o in person){
+                    objectCon_ += person[o] + '<br>';
+                }
+                console.log(objectCon_)
+                //for of loop is for the arrays, strings and etc except the object since object is for the for in loop.
+                        const persons = [
+                            'Dinavel',
+                            'andrew', 
+                            'dina']
+                        
+                        let objCon =''
+                        for (let o of persons){
+                            objCon += persons[o]
+                        }
+                
+                //the forEach method
+                let demoForEach = ''
+                theArray.forEach(theFunction);
+                document.getElementById('forArray').innerHTML = demoForEach;
+                 
+                function theFunction (theValue, index, array){
+                    if(index < 5){
+                        demoForEach += `the value: ${theValue} is part of the array <br>`
+                    }
+                }
+
+                // the while loop the code will execite until the condition mets or satisfies.
+
+                const sample = ['Dina', 'Andrew', 'Dinavel']
+                 
+                let txt = ''
+                let p = 0
+
+                while (p < sample.length){
+                    txt += sample[p] + '<br>'
+                    p++
+                }
+                 //If you forget to increase the variable used in the condition, the loop will never end. This will crash your browser.
+                //document.getElementById('forArray').innerHTML = txt
+
+
+                const arrayPerson = [
+                    'dina', 
+                    'binongo',
+                    'estipular',
+                    'andrew',
+                    'batnag',
+                    'farnagan'
+                ]
+                let forCon = ''
+                let i = 0
+                 let arrayLength = arrayPerson.length
+                 for (; i< arrayLength; i++){
+                    if (i === 3){continue ; }
+                    forCon+= arrayPerson[i] + '<br>'
+                 }
+                 document.getElementById('forArray').innerHTML = forCon
+
+                 try {
+                    const ref = {
+                        fruit: 'tomato',
+                        veggie: 'cabbage',
+                        drinks: 'coke',
+                        meat: 'chicken meat'
+                    }
+
+                    
+                 }
+        /*
+        const nameSamples = ['Dinavel', 'Dina', 'DinDin', 'Andrew', 'neko']
+
+        let nameStoreSamples = ''
+        for (let reps = 0; reps < nameSamples.length; reps++){
+            nameStoreSamples += nameSamples[reps] + '<br>';
+        }
+
+        console.log(nameStoreSamples);
+        */
+
+
+    </script>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>functions</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <script>
+        
+        greet('dina')
+        function greet(name){
+            if(!name){
+                console.log('hello there')
+            } else {
+                console.log(`hello ${name}`)
+            }
+        }
+
+        console.log(convertToFa(25))// this is celcius
+
+        function convertToFa(celcius){
+            let fahrenheit = (celcius * 9 / 5) + 32
+            return fahrenheit
+        }
+        console.log(convertToCe(86))// this is fahrenheit
+
+
+        function convertToCe(fahrenheit){
+            let celcius = (fahrenheit - 32)* 5 / 9
+            return celcius
+        }
+            
+
+       console.log(convertTemp(30, 'f'))
+
+        function convertTemp(degrees, unit){
+             if(unit === 'f'){
+                let fahrenheit = convertToFa(degrees) //the exisiting function will handle the calculations in the degrees parameter
+                console.log(`${fahrenheit}F`)
+             } else{
+                  let celcius = convertToCe(degrees)
+                  console.log(`${celcius}C`)
+             }
+        }
+
+        function convertLength(lenght, from, to){
+            
+        }
+    </script>
+</body>
+</html>

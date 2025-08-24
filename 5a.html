@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+        .menu{
+            width: 200px;
+            display: flex;
+            gap: 20px;
+            flex-direction: column;
+        }
+        .containerMenu{
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }.calculator div{
+            display: grid;
+            grid-template-areas: 'col1 col2 col3';
+            gap: 2px;
+            width: 200px;
+            height: 300px;
+        }.calculator button{
+            color: white;
+            border-radius: 50%;
+            border: 1px solid rgb(0, 0, 0);
+            background-color: rgb(1, 1, 1);
+        }.calculator button:hover{
+            background-color: aqua;
+        }.calculator input{
+            width: 190px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <section class="menu">
+        <div class="containerMenu">
+            <div>
+                <h3>Coffee</h3>
+                <button onclick="coffeeItem()">Order</button>
+            </div>
+            <div>
+                <h3>Bagels</h3>
+                <button onclick="bagelItem()">Order</button>
+            </div>
+            <div>
+                <h3>Soup</h3>
+                <button onclick="soupItem()">Order</button>
+            </div>
+        </div>
+        <button onclick="totalOrders()">Total</button>
+        <button onclick="cancelOrder()">Cancel Order</button>
+        <p id="returnTotal">total:</p>
+    </section>
+    <section class="calculator">
+        <input type="text" value="" id="getNumbers">
+        <div>
+            <button onclick="addNum()" style="background-color: rgb(255, 170, 0);">+</button>
+            <button style="background-color: rgb(255, 170, 0);">-</button>
+            <button style="background-color: rgb(255, 170, 0);">*</button>
+            <button style="background-color: rgb(255, 170, 0);">/</button>
+            <button id="numberOne" onclick="numberOne()">1</button>
+            <button id="numberTwo" onclick="numberTwo()">2</button>
+            <button id="numberthree" onclick="numberThree()">3</button>
+            <button id="numberFour">4</button>
+            <button id="numberFive">5</button>
+            <button id="numberSix">6</button>
+            <button id="numberSeven">7</button>
+            <button id="numberEight">8</button>
+            <button id="numberNine">9</button>
+            <button id="totalNum" onclick="getNum()">=</button>
+            <button id="deleteNum" onclick="delNum()">Del</button>
+        </div>
+        
+    </section>
+    <script>
+        let coffee = 0
+        let bagels = 0
+        let soup = 0
+        let priceOfItems = 0
+       function coffeeItem(){
+        coffee++
+        coffee * 5
+        console.log(`you ordered ${coffee} cups of cofee`)
+       }function bagelItem(){
+        bagels++
+        bagels * 3
+        console.log(`you ordered ${bagels} pieces of bagels`)
+       }
+        function soupItem(){
+        soup++
+        soup * 9
+        console.log(`you ordered ${soup} cup of soup`)
+       }
+       function totalOrders(){
+        const totalOrder = (coffee * 5) + (bagels * 3) + (soup * 9)
+        console.log(`Hey your total are ${totalOrder} `)
+       }
+       function cancelOrder(){
+        soup = 0
+        coffee = 0
+        bagels = 0
+        priceOfItems = 0
+        console.log(`Your order now has been canceled`)
+       }
+       
+       let numOne = 0
+       let numTwo = 0
+       let numThree = 0
+
+       function delNum(){
+        numOne = 0
+        numTwo = 0
+        numThree = 0
+        document.getElementById('getNumbers').value = ``
+       }
+       function addNum(){
+        const totalNum = numOne + numTwo + numThree
+        return totalNum;
+       }
+       function getNum(){
+        document.getElementById('getNumbers').value = addNum()
+       }
+       function numberOne(){
+        numOne = 1
+        console.log(numOne)
+        document.getElementById('getNumbers').value = numOne
+       }function numberTwo(){
+        numTwo = 2
+        console.log(numTwo)
+        document.getElementById('getNumbers').value = numTwo
+       } function numberThree(){
+        numThree = 3
+        console.log(numThree)
+        document.getElementById('getNumbers').value = numThree
+       } 
+    </script>
+</body>
+</html>

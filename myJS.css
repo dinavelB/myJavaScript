@@ -24,6 +24,7 @@
     box-shadow: 0px 0px 20px rgb(180, 170, 170);
     border-radius: 10px;
     background-color: rgb(235, 238, 240);
+    transition: transform 0.3s ease;
 }.buttons{
     display: grid;
     grid-template-areas: 'col1 col2 col3 col4'
@@ -42,4 +43,7 @@
     background-color: white;
 }button:hover{
     background-color: aliceblue;
+}.con:hover{
+    scale: 1.2;
+    transform: scale(1.1);
 }

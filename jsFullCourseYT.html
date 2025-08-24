@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Js FullCourse YT</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <section>
+        <button onclick="quantityFunction()" id="quantity">Show Quantity</button>
+        <button onclick ="addToCart()">Add to Cart</button>
+        <button onclick="addTwo()">+2</button>
+        <button onclick="addThree()">+3</button>
+        <button onclick="resetCart()">Reset Cart</button>
+    </section>
+    <script>
+        
+        let quantity = 0
+        let limiter = 0
+        function quantityFunction(){
+                console.log(`Your Cart has ${quantity} items`)
+                alert(`Your Cart has ${quantity} items`)
+        }
+        function limitItems(){
+            
+            if(quantity < limiter){
+                quantity++
+                console.log(`Your Cart has ${quantity} items`)
+            }else{
+                console.log(`you order exceeds the limit. Total of items ordered: ${quantity}`)
+            }
+        }
+        function addToCart(){
+            limiter = 10
+                if(quantity < limiter){
+                quantity++
+                console.log(`Your Cart has ${quantity} items`)
+            }else{
+                console.log(`you order exceeds the limit. Total of items ordered: ${quantity}`)
+            }
+        }
+        function addTwo(){
+            limiter = 10
+                if(quantity < limiter){
+                quantity += 2
+                console.log(`Your Cart has ${quantity} items`)
+            }else{
+                console.log(`you order exceeds the limit. Total of items ordered: ${quantity}`)
+            }
+        }
+        function addThree(){
+            limiter = 9
+                if(quantity < limiter){
+                quantity += 3
+                console.log(`Your Cart has ${quantity} items`)
+            }else{
+                console.log(`you order has ${quantity} items the limit is 10, you can still order 1. Total of items ordered: ${quantity}`)
+            }
+        }
+        function resetCart(value = 0){
+            quantity = 0 
+            limiter = 0
+            alert(`Your cart has reset.`)
+            console.log(`Your cart has reset
+            `)
+        }
+
+        function Car(brand, models, year) {
+        this.brand = brand; 
+        this.models = models;        // Array ← This one is an array
+        this.year = year;            // Number
+        this.isElectric = false;     // Boolean
+        this.specs = {               // Object
+            horsepower: 200,
+            color: "red",
+        }   
+        this.set = function() {
+            return `${this.year}, ${this.isElectric}, ${this.specs}`
+        }    
+
+        };
+
+const myCar = new Car(["Toyota", "honda"], ["Camry", "Corolla"], 2023);
+       console.log(myCar)
+    </script>
+</body>
+</html>

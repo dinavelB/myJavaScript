@@ -3,35 +3,40 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>javaScriptJourney</title>
+    <title>expPlayGround</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-<script type="text/javaScript">
-
-function alerts (){
-    var myValue = document.getElementById('myTextBox').value;
-
-    if (myValue.length == 0){
-        alert ('Please enter a valid elements or response');
-        return;
-    }
-    else if 
-    var myHeader = document.getElementById('theHeader');
-    myHeader.innerHTML = myValue;
-}
- 
-   //var someValue; // tthis is no value cus it ended on semi colon
-   //someValue = "testjavaScript";
-   //someValue = "anotherTestjavaScript";
-    </script>
+    <script src='main.js'></script>
 </head>
-<body onload="alert('Hello Dinavel, Welcome back!')">
-
-    <h1 id="theHeader"></h1>
-    <h1>hahahhahahahah</h1>
-    <h1>test</h1>
-    <h2>Hello World</h2>
-    <input type="text" id="myTextBox"/>
-    <input type="submit" value="Click Me!!!" onclick="alerts()"/>
+<body>
+    <section>
+        <input type="text" placeholder="Enter your first name" id="getName">
+        <button onclick="fName()">enter</button>
+        <p id="getInfo"></p>
+        <button onclick="getInfo()">Enter</button>
+    </section>
+    <script>
+        function StudentInfo(firstName, lastName, middleName, year, age){
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.middleName = middleName;
+            this.year = year;
+            this.age =age;
+        }
+        StudentInfo.prototype.getFullInfo = function(){
+            return `${this.firstName}, ${this.lastName}, ${this.middleName}, ${this.year}, ${this.age}`
+        }
+       function fName(){
+            const getFName = document.querySelector('#getName').value
+             const get = document.querySelector('#getInfo').innerHTML = getFName
+            console.log(get)
+            
+        } 
+        StudentInfo.prototype.linkName = function(){
+            this.firstName = fName()
+            
+        }
+        const studentOne = new StudentInfo('Dinavel','Binongo','Escodero', 'First Year', 19)
+    </script>
 </body>
 </html>
