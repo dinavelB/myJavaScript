@@ -32,6 +32,8 @@
             line-height: 20px;
             background-color: #FFF2E0;
             width: 100%;
+            display: flex;
+            flex-direction: column;
         }.container h1{
              color: #898AC4;
         }#choices{
@@ -43,15 +45,15 @@
             height: 30px;
             width: 50px;
             border: solid #353e5e 1px;
-        }article{
+        }.result{
             background-color: rgb(255, 255, 255);
             height: 50px;
             width: auto;
             display: flex;
             align-items: center;
-        }article p{
+        }.result p{
             padding: 10px;
-        }#nextQuestion{
+        }#nextQuestion, #totalScore, #resetScores{
             width: 100px;
             border-radius: 5px;
         }button:hover{
@@ -69,38 +71,149 @@
                 <h1>Quiz Project</h1>
                 <p id="questionHandler"></p>
                 <p id="choices"></p>
+                <article>
                 <button onclick="correctAnswer(0)">a</button>
                 <button onclick="correctAnswer(1)">b</button>
                 <button onclick="correctAnswer(2)">c</button>
-                <article>
-                    <p id="result"></p>
                 </article>
-                <button id="nextQuestion" onclick="showQuestion(nextQuestion)">Next question</button>
+                
+                    <p id="result"></p>
+        
+                <button id="nextQuestion" onclick="nextQuestion()">Next question</button>
+                <button onclick="totalScore()" id="totalScore">Total Score</button>
+                <button onclick="resetScores()" id="resetScores">reset score</button>
             </div>
         </div>
     </section>
     <script>
         const questionsArray = [
             {
-                question: 'What is 3 + 3?',
-                answers: ['a: 6', ' b: 7', ' c: 8'],
-                correct: 0
+                question: 'What’s the heaviest organ in the human body?',
+                answers : {
+                    a: 'Brain',
+                    b: 'Liver',
+                    c: 'Skin'
+                },
+                correct: 2
             },
              {
-                question: 'What is 3 + 5?',
-                answers: ['a: 6', ' b: 7', ' c: 8'],
+                question: 'Which of these EU countries does not use the euro as its currency?',
+                answers : {
+                    a: 'Poland',
+                    b: 'Denmark',
+                    c: 'All of the above'
+                },
                 correct: 2
+            },
+             {
+                question: 'On average, how many seeds are located on the outside of a strawberry?',
+                answers : {
+                    a: '200',
+                    b: '400',
+                    c: '100'
+                },
+                correct: 0
+            },
+            {
+                question: 'What are imitation crab sticks made of?',
+                answers : {
+                    a: 'Cuttlefish',
+                    b: 'Tofu',
+                    c: 'Whitefish'
+                },
+                correct: 2
+            },
+             {
+                question: 'Which country’s national animal is a unicorn?',
+                answers : {
+                    a: 'Denmark',
+                    b: 'Scotland',
+                    c: 'New Zealand'
+                },
+                correct: 1
+            },
+            {
+                question: 'What is yellowtail fish called in Japanese?',
+                answers : {
+                    a: 'Ikura',
+                    b: 'Hamachi',
+                    c: 'Maguro'
+                },
+                correct: 1
+            },
+            {
+                question: 'Mycology is the scientific study of what?',
+                answers : {
+                    a: 'Cancer Cells',
+                    b: 'Flowers',
+                    c: 'Fungi'
+                },
+                correct: 2
+            },
+            {
+                question: 'The first vaccine was for which disease?',
+                answers : {
+                    a: 'Smallpox',
+                    b: 'Polio',
+                    c: 'Measles'
+                },
+                correct: 0
+            },
+            {
+                question: 'Where did the croissant originate?',
+                answers : {
+                    a: 'France',
+                    b: 'Austria',
+                    c: 'Turkey'
+                },
+                correct: 1
+            },
+            {
+                question: 'Mount Olympus is the highest mountain in what country?',
+                answers : {
+                    a: 'Italy',
+                    b: 'Greece',
+                    c: 'Spain'
+                },
+                correct: 1
             }
         ]
-        let nextQuestion = 0
-         let currentQuestions = 0;
+        //const getCalculation = JSON.parse(localStorage.getItem('scores'))
+
+        /*let scoreCalculation;
+        if(getCalculation){
+            scoreCalculation = getCalculation
+        } else{
+            scoreCalculation = {
+                correct: 0,
+                wrong: 0
+            }
+        }
+            */
+            const scoreCalculation = {
+                correct: 0,
+                wrong: 0
+            }
+
+            let handleObj;
+        let nextQuestions = 0
+        let currentQuestion = 0
         function showQuestion(questNum){
 
             if(questNum >= 0 && questNum < questionsArray.length){
-                document.querySelector('#questionHandler').innerHTML = questionsArray[questNum].question
-                document.querySelector('#choices').innerHTML = questionsArray[questNum].answers
-                currentQuestions = questNum;
-                nextQuestion = questNum + 1
+                 handleObj = questionsArray[questNum]
+                 
+                document.querySelector('#questionHandler').innerHTML = handleObj.question
+               
+                let theChoices = Object.keys(handleObj.answers)
+                let choicesHandler = ''
+
+                theChoices.forEach((keys, index) => {
+                    choicesHandler += `${keys}: ${handleObj.answers[keys]}<br>
+                    `
+                })
+                document.querySelector('#choices').innerHTML = choicesHandler
+                nextQuestions = questNum + 1
                 return true
             } else{
                 console.log('invalid number')
@@ -109,23 +222,57 @@
         
     }
 
-        
+        let questionAnswered = false;
         function correctAnswer(answer){
+            
             if(typeof answer !== 'number' || answer < 0){
                 console.log('invalid answer')
                 return
             }
-                if(answer === questionsArray[currentQuestions].correct){
-                   document.querySelector('#result').innerHTML = `The correct answer is ${questionsArray[currentQuestions].answers[answer]}`
+                if(questionAnswered) return true;
+
+                if(answer === handleObj.correct){
+                    scoreCalculation.correct++
+                   document.querySelector('#result').innerHTML = `You're correct`
+                    questionAnswered = true
+                    //localStorage.setItem('scores', JSON.stringify(scoreCalculation))
+                    return true;
+
                 } else{
                     document.querySelector('#result').innerHTML ='youre wrong buddy'
+                    scoreCalculation.wrong++
+
+                    questionAnswered = true
+                    return false
                 }
             }
-
-            if(showQuestion(0)){
-                 correctAnswer(0)
+        showQuestion(0)
+         function nextQuestion(){
+             if(nextQuestions  >= questionsArray.length){
+                document.querySelector('#result').innerHTML ='no questions left'
+                return true
+             }
+                questionAnswered = false
+                document.querySelector('#result').innerHTML =''
+                showQuestion(nextQuestions);
+                 
+      }function resetScores(){
+        questionAnswered = false
+        /*
+            scoreCalculation = {
+                correct: 0,
+                wrong: 0
             }
-        
+                */
+               scoreCalculation.correct = 0
+                scoreCalculation.wrong = 0
+                     
+                   document.querySelector('#result').innerHTML =''
+                   showQuestion(0)
+        }
+        function totalScore(){
+            document.querySelector('#result').innerHTML =`Your total score is ${scoreCalculation.correct}/10`
+        }
     </script>
 </body>
 </html>
