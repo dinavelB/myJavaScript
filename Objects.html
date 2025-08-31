@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <script>
+        const items = {
+            itemName1: 'Basketball',
+            itemPrice1: 3000,
+            deliveryTime1: '3 days',
+            itemName2: 'Cellphone',
+            itemPrice2: 2500,
+            deliveryTime2: '6 days',
+        }
+
+        const {itemName, itemPrice, deliveryTime} = items;
+
+        function itemOne (){
+         let nameItem = items.itemName1;
+         let priceItem = items.itemPrice1;
+
+         console.log(nameItem)
+         console.log(priceItem)
+
+         return {name: nameItem,
+            price: priceItem
+         }
+        }
+    
+        function itemTwo (){
+         let nameItem2 = items.itemName2;
+         let priceItem2 = items.itemPrice2;
+
+         console.log(nameItem2)
+         console.log(priceItem2)
+
+         return {name: nameItem2,
+            price: priceItem2
+         }
+        }
+
+        function compareItems (product1, product2){
+            if(product1.price > product2.price){
+                return `${product2.name} is more affordable`
+            }else{
+                return `${product1.name} is more affordable`
+            }
+        }
+        console.log(compareItems(itemOne(), itemTwo()))
+        
+    </script>
+</body>
+</html>
