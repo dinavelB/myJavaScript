@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <script>
+        const items = [
+            {itemName: 'Basketball',
+            itemPrice: 3000,
+            deliveryTime: '3 days'
+            },
+            {
+            itemName: 'Cellphone',
+            itemPrice: 2500,
+            deliveryTime: '6 days'
+        }
+    ]
+       function addItem (itemName, itemPrice, deliveryTime){
+        return {
+            itemName,
+            itemPrice,
+            deliveryTime
+        }
+       }
+
+       let newItem = addItem('Shoes', 3000, '4 days')
+       items.push(newItem)
+
+        function compareItems (product1, product2){
+            if(product1.itemPrice > product2.itemPrice){
+                return `${product2.itemName} is more affordable than ${product1.itemName}`
+            }else{
+                return `${product1.itemName} is more affordable than ${product2.itemName}`
+            }
+        }
+        //userInput dynamically
+        console.log(compareItems(items[0], items[2]))
+        
+        function findItem(name){
+            return items.find(objItem => objItem.itemName.toLowerCase() === name.toLowerCase())
+        }
+        //userInput
+        console.log(findItem('Basketball'))
+       
+
+        function getAffordableItems(maxPrice){
+            return items.filter(objItem =>
+                objItem.itemPrice <= maxPrice
+            )
+        }
+        //userInput
+        console.log(getAffordableItems(3000))
+
+        function sortItemsPrice(){
+            return [... items].sort((objItem1, objItem2) => objItem1.itemPrice - objItem2.itemPrice)
+        }
+        
+        console.log(sortItemsPrice())
+        
+    </script>
+</body>
+</html>
