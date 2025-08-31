@@ -10,49 +10,58 @@
 </head>
 <body>
     <script>
-        const items = {
-            itemName1: 'Basketball',
-            itemPrice1: 3000,
-            deliveryTime1: '3 days',
-            itemName2: 'Cellphone',
-            itemPrice2: 2500,
-            deliveryTime2: '6 days',
+        const items = [
+            {itemName: 'Basketball',
+            itemPrice: 3000,
+            deliveryTime: '3 days'
+            },
+            {
+            itemName: 'Cellphone',
+            itemPrice: 2500,
+            deliveryTime: '6 days'
         }
-
-        const {itemName, itemPrice, deliveryTime} = items;
-
-        function itemOne (){
-         let nameItem = items.itemName1;
-         let priceItem = items.itemPrice1;
-
-         console.log(nameItem)
-         console.log(priceItem)
-
-         return {name: nameItem,
-            price: priceItem
-         }
+    ]
+       function addItem (itemName, itemPrice, deliveryTime){
+        return {
+            itemName,
+            itemPrice,
+            deliveryTime
         }
-    
-        function itemTwo (){
-         let nameItem2 = items.itemName2;
-         let priceItem2 = items.itemPrice2;
+       }
 
-         console.log(nameItem2)
-         console.log(priceItem2)
-
-         return {name: nameItem2,
-            price: priceItem2
-         }
-        }
+       let newItem = addItem('Shoes', 3000, '4 days')
+       items.push(newItem)
 
         function compareItems (product1, product2){
-            if(product1.price > product2.price){
-                return `${product2.name} is more affordable`
+            if(product1.itemPrice > product2.itemPrice){
+                return `${product2.itemName} is more affordable than ${product1.itemName}`
             }else{
-                return `${product1.name} is more affordable`
+                return `${product1.itemName} is more affordable than ${product2.itemName}`
             }
         }
-        console.log(compareItems(itemOne(), itemTwo()))
+
+        console.log(compareItems(items[0], items[2]))
+        
+         console.log(findItem('Basketball'))
+        function findItem(name){
+            return items.find(objItem => objItem.itemName.toLowerCase() === name.toLowerCase())
+        }
+
+       
+
+        function getAffordableItems(maxPrice){
+            return items.filter(objItem =>
+                objItem.itemPrice <= maxPrice
+            )
+        }
+         
+         console.log(getAffordableItems(3000))
+
+        function sortItemsPrice(){
+            return [... items].sort((objItem1, objItem2) => objItem1.itemPrice - objItem2.itemPrice)
+        }
+
+        console.log(sortItemsPrice())
         
     </script>
 </body>
