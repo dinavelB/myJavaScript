@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <script>
+        const books = [
+             { title: "The Hobbit", author: "J.R.R. Tolkien", price: 450, pages: 310 },
+             { title: "1984", author: "George Orwell", price: 300, pages: 328 }
+        ]
+
+        function addNewBook(title, author, price, pages){
+            return{
+                title,
+                author,
+                price,
+                pages
+            }
+        }
+
+        let book3 = addNewBook('Red hood', 'dinavel', 300, 5000)
+        books.push(book3)
+         
+        // parameters are always pertaining to the value you will insert later with the function.
+        function compareBooks(book1, book2, type = 'price'){
+
+            if (type === 'price'){
+                return book1.price > book2.price ?
+                `${book2.title} is cheaper than ${book1.title}`
+                : `${book1.title} is cheaper than ${book2.title}`
+            } else{
+                return book1.pages > book2.pages ?
+                `${book1.title} has more pages than ${book2.title}`
+                : `${book1.title} has fewer pages than ${book2.title}`
+            }
+        }
+
+        console.log(compareBooks(books[0], books[1], ))
+
+        function findBook(bookTitle){
+            return books.find(bookHandler => bookHandler.title.toLowerCase() === bookTitle.toLowerCase())
+        }
+        console.log(findBook('the hobbit'))
+
+        function getAffordableBooks(maxPrice){
+            return books.filter(bookHandler => bookHandler.price <= maxPrice)
+        }
+
+         console.log(getAffordableBooks(3000))
+
+        function sortBooks(type = 'price'){
+            if(type !== 'price'){
+                 return [...books].sort((bookA, bookB) => bookA.pages - bookB.pages)
+            } else {
+                return [...books].sort((bookA, bookB) => bookA.price - bookB.price)
+            }
+        }
+        console.log(sortBooks())
+    </script>
+</body>
+</html>
