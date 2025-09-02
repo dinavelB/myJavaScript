@@ -9,7 +9,7 @@ body{
     gap: 20px;
 }
 .childContainer{
-    margin: 20px;
+    margin: 5px;
     display: grid;
     width: 500px;
     gap: 20px;
@@ -44,7 +44,7 @@ body{
 }#lists button{
     margin-right: 10px;
 }#lists{
-    margin: 20px;
+    margin: 5px;
     display: grid;
     width: 450px;
     background-color: antiquewhite;
