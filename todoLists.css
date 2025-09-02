@@ -1,0 +1,49 @@
+.parentContainer{
+    display: grid;
+    padding-top: 20px;
+    gap: 20px;
+}
+.childContainer{
+    margin: 20px;
+    display: grid;
+    width: 500px;
+    gap: 20px;
+    background-color: antiquewhite;
+    border-radius: 10px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2); 
+}
+.addTasks{
+    margin: 20px;
+    margin-left: 40px;
+    display: flex;
+    justify-content: space-between;
+}input, button{
+    width: 200px;
+    height: 30px;
+}button{
+    width: 100px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 10px;
+    margin-left: 20px;
+    box-shadow: inset -4px 4px 4px rgba(0, 0, 0, 0.2); 
+}input:focus{
+    outline: none;
+}.completed{
+    text-decoration: line-through;
+}#lists li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}#lists button{
+    margin-right: 10px;
+}#lists{
+    margin: 20px;
+    display: grid;
+    width: 450px;
+    background-color: antiquewhite;
+    border-radius: 10px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2); 
+    border-bottom: 1px solid rgb(194, 194, 194);
+}
