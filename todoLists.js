@@ -65,3 +65,4 @@ function addTask(text, completed ){
         let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
         tasks.forEach(task => addTask(task.text, task.completed))
     }
+    
