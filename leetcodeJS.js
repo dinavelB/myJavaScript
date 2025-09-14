@@ -1,5 +1,5 @@
 
-let tasks = [
+/*let tasks = [
 
 ]
 function arrayLeetCode (theTasks, completed){
@@ -25,7 +25,7 @@ function getPendingTasks(){
             
              // this returns undefined because the function isnt returning a value
         }
-            */
+            
 
          return tasks
          // filter method lets you filtered of what value you want to get
@@ -61,7 +61,74 @@ function getPendingTasks(){
 
     for(let theArr in array){
         console.log(theArr, array[theArr])
-    }*/
+    }
 console.log(removeCTasks())
+*/
+
+const inventory = []
+
+    // constructor with validity and auto push
+
+function Product (productname, productprice, productquan, productcategory, id){
+    if(typeof productname !== 'string'){
+    throw new Error ('invalid input')
+    }
+    if(typeof productcategory !== 'string'){
+    throw new Error ('invalid input')
+    }
+    if( productprice<= 0 || !Number.isInteger(productprice)){
+    throw new Error ('price must be greater than zero')
+    }
+    if(productquan<= 0 || !Number.isInteger(productquan)){
+    throw new Error ('quantity must be greater than zero')
+    }
+    if(id<= 0 || !Number.isInteger(id)){
+    throw new Error ('the id of the product must be greater than zero')
+    }
+
+    this.productname = productname;
+    this.productcategory = productcategory;
+    this.productprice = productprice;
+    this.productquan = productquan;
+    this.id = id;
+
+    inventory.push(this)
+
+}
+    //create a product then checks if it has errors by try and catch, this is connected to the validity in constructor
+
+function createProduct(productname, productprice, productquan, productcategory, id){
+    try {
+      const createproduct = new Product(productname, productprice, productquan, productcategory, id)
+      console.log('create successfully')
+      return createproduct
+    } catch (error){
+      console.log('failed to create a product')
+      return null;
+    }
+}
+    //finds the productid and productname, returns failure if not found
+
+function findProductbyID(productid, productname){
+    const product = inventory.find(itemproduct => itemproduct.id === productid || itemproduct.productname === productname)
+    return product? product : 'product not found'
+}
+    //adds a product quantity based on the product id
+
+function restockProduct(productid, addQuantity){
+    const product = findProductbyID(productid)
+
+    if (typeof product === 'string'){
+      return product
+    }
+    if (addQuantity <= 0 || !Number.isInteger(addQuantity)){
+      return 'invalid quantity'
+    }
+
+    product.productquan += addQuantity
+    return `Restocked! New quantity: ${product.quantity}`;
+}
+
+
 
 

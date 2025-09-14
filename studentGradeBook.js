@@ -30,7 +30,7 @@ const studentInfo = [
         })
     }
 
-
+z
     //if it has a parameter its always referrring to object. sample is the s parameter
             //if parameterName.objectPropertyName = this always refers to object
             //the findIndex returns -1 if not found so you can use indexArray !== condition
