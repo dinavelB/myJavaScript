@@ -69,7 +69,7 @@ const inventory = []
 
     // constructor with validity and auto push
 
-function Product (productname, productprice, productquan, productcategory, id){
+function Product (productname,productcategory,  productprice, productquan,id){
     if(typeof productname !== 'string'){
     throw new Error ('invalid input')
     }
@@ -126,9 +126,44 @@ function restockProduct(productid, addQuantity){
     }
 
     product.productquan += addQuantity
-    return `Restocked! New quantity: ${product.quantity}`;
+    return `Restocked! New quantity: ${product.productquan}`;
 }
 
 
+function sellProduct(productId, sellQuantity){
+  const product = findProductbyID(productId);
 
+  if (typeof product === 'string'){
+    return 'product not found'
+  }
 
+  if(typeof sellQuantity !== 'number' || sellQuantity <= 0 || !Number.isInteger(sellQuantity)){
+    return 'invalid quantity'
+  }
+  
+  if(sellQuantity > product.productquan){
+    return `Only number of ${product.productquan} is avaliable`
+  }
+
+  product.productquan -= sellQuantity
+  console.log(`success the product available now for ${product.productname} is ${product.productquan}`)
+}
+
+function showAllProduct(product){
+  if (product.length === 0){
+    return `you have no products yet`
+    }
+    else{
+      //the for of loop is for looping the array, and i access the inner object by calling their keys. Sample: product.id, the .id is a key
+      for (let products of product){
+      console.log(`Product name: ${products.productname}`)
+        console.log(`Product category: ${products.productcategory}`)
+          console.log(`Product price: ${products.productprice}`)
+            console.log(`Product quantity: ${products.productquan}`)
+              console.log(`Product ID: ${products.id}`)
+    }
+  }
+}
+const Shoes = createProduct('Shoes', 'Dry Goods', 1000, 10, 1)
+//to access the warpped array or an array with an object of it is to wrapped also when you call it
+console.log(showAllProduct([inventory[0]]))
