@@ -1,0 +1,29 @@
+.income {
+  margin: 0;
+  background-color: #68fa8a; /* light green */
+  color: green;
+  padding: 8px;
+  margin-bottom: 20px;
+}
+.expense {
+  background-color: #47171b; /* light red */
+  color: red;
+  padding: 8px;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+
+#js-transactionList {
+    margin: 0;
+    padding: 0;
+    list-style: none; /* removes the bullet dots */
+}
+
+#js-transactionList li {
+    margin: 0;
+    padding: 10px; /* optional, for nicer spacing */
+    border-radius: 5px;
+    margin-bottom: 5px; /* little spacing between items */
+}
+
+

@@ -1,0 +1,106 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css");
+
+body{
+  margin: 0;
+  color: #EB3678;
+  font-family: 'Montserrat';
+}
+.background{
+  border-radius: 12px;
+  margin: 10px;
+  padding: 70px;
+  background-color: #180161;
+}.holder{
+  gap: 30px;
+  display: grid;
+  grid-template-areas: 'header header'
+                        'income addTransac'
+                        'transaction addTransac';
+  align-items: center;                  
+}.holder h2{
+  border-radius: 6px;
+  background-color: #4F1787;
+  padding: 10px;
+  width: 160px;
+  font-size: 18px;
+  grid-area: header;
+  box-shadow: 10px 10px 10px #000000;
+}.holder h3{
+  font-size: 15px;
+}.incomeHolder{
+  background-color: #4F1787;
+  border: 1px solid #FB773C;
+  border-radius: 6px;
+  padding: 20px;
+   grid-area: income;
+   display: grid;
+   grid-template-areas:
+   'income expenses'
+   'balance expenses';
+   align-items: center;
+   gap: 20px;
+    color: #4CFB3C;
+    font-size: 30px;
+    font-weight: 700;
+}.incomeHolder h3{
+    box-shadow: inset -2px  4px 4px rgb(51, 7, 42);
+    border: 1px solid black;
+  background-color: #180161;
+  padding: 10px;
+  width: 100px;
+  text-align: center;
+  border-radius: 6px;
+}.transac{
+    font-weight: 700;
+   background-color: #4F1787;
+  border: 1px solid #FB773C;
+  border-radius: 6px;
+  padding: 20px;
+  grid-area: transaction;
+}.transac p{
+    border: 1px solid #FB773C;
+  display: inline-block;
+  padding: 10px;
+  width: 500px;
+  background-color: #EB3678;
+  color: #180161;
+  border-radius: 6px;
+}span{
+    margin-left: 100px;
+}i{
+    margin-left: 20px;
+    background-color: aliceblue;
+    padding: 15px;
+    border-radius: 6px;
+    color: red;
+}.newTransactions{
+   background-color: #4F1787;
+  border: 1px solid #FB773C;
+  border-radius: 6px;
+  padding: 10px;
+  grid-area: addTransac;
+  margin-right: 200px;
+  width: 500px;
+}.income{
+    background-color: #EB3678;
+    border-radius: 12px;
+    grid-area: income;
+    padding: 10px;
+}.balance{
+  grid-area: balance;
+   background-color: #EB3678;
+    border-radius: 12px;
+    padding: 10px;
+}.expenses{
+  grid-area: expenses;
+   background-color: #EB3678;
+    border-radius: 12px;
+    padding: 10px;
+}.incomeHolder, .transac{
+    width: 600px;
+}
+
+
+

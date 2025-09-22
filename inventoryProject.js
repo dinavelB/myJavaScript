@@ -155,7 +155,7 @@ function searchProduct(search, category ){
     if(!search && !category){
         return inventory
     }
-
+                    
     for (let product of inventory){
         // set the values to true
         let mactchSeacrh = true;
